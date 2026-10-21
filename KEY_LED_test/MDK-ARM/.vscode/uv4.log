@@ -1,0 +1,4 @@
+Load "KEY_LED_test\\KEY_LED_test.axf" 
+RDDI-DAP Error
+Error: Flash Download failed  -  Target DLL has been cancelled
+Flash Load finished at 20:28:41
