@@ -3,18 +3,18 @@
         {
             "name": "USERT_test",
             "includePath": [
-                "d:\\STM32_code_project\\USERT_test\\Core\\Inc",
-                "d:\\STM32_code_project\\USERT_test\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
-                "d:\\STM32_code_project\\USERT_test\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
-                "d:\\STM32_code_project\\USERT_test\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
-                "d:\\STM32_code_project\\USERT_test\\Drivers\\CMSIS\\Include",
+                "c:\\Users\\严寒\\Desktop\\github\\STM32-test\\USERT_test\\Core\\Inc",
+                "c:\\Users\\严寒\\Desktop\\github\\STM32-test\\USERT_test\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
+                "c:\\Users\\严寒\\Desktop\\github\\STM32-test\\USERT_test\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
+                "c:\\Users\\严寒\\Desktop\\github\\STM32-test\\USERT_test\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
+                "c:\\Users\\严寒\\Desktop\\github\\STM32-test\\USERT_test\\Drivers\\CMSIS\\Include",
                 "D:\\enbedded_software\\Keil5\\core\\ARM\\ARMCLANG\\include",
                 "D:\\enbedded_software\\Keil5\\core\\ARM\\ARMCLANG\\include\\arm_linux",
                 "D:\\enbedded_software\\Keil5\\core\\ARM\\ARMCLANG\\include\\arm_linux_compat",
                 "D:\\enbedded_software\\Keil5\\core\\ARM\\ARMCLANG\\include\\libcxx",
-                "d:\\STM32_code_project\\USERT_test\\MDK-ARM",
-                "d:\\STM32_code_project\\USERT_test\\Core\\Src",
-                "d:\\STM32_code_project\\USERT_test\\Drivers\\STM32F1xx_HAL_Driver\\Src"
+                "c:\\Users\\严寒\\Desktop\\github\\STM32-test\\USERT_test\\MDK-ARM",
+                "c:\\Users\\严寒\\Desktop\\github\\STM32-test\\USERT_test\\Core\\Src",
+                "c:\\Users\\严寒\\Desktop\\github\\STM32-test\\USERT_test\\Drivers\\STM32F1xx_HAL_Driver\\Src"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

@@ -31,7 +31,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define inbuffernum 64
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -43,7 +43,9 @@
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
-
+uint8_t recv_byte=1;
+uint16_t cont=0;
+uint8_t inbuffer[inbuffernum];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -51,7 +53,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
+uint8_t ReadLine(UART_HandleTypeDef*huart);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -97,6 +99,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    uint8_t num=ReadLine(&huart1);
+    HAL_UART_Transmit(&huart1,inbuffer,num,HAL_MAX_DELAY);
+    HAL_GPIO_TogglePin(GPIOF,GPIO_PIN_8);
+    // if(HAL_OK==HAL_UART_Receive(&huart1,&recv_byte,1,HAL_MAX_DELAY))
+    // {
+
+    //   HAL_UART_Transmit(&huart1,&recv_byte,1,0);
+    //   cont++;
+      
+    // }
+    // if (cont >= 10)
+    // {
+    //   cont = 0;
+    //   HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_8);
+    // }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -193,7 +210,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PF8 */
   GPIO_InitStruct.Pin = GPIO_PIN_8;
@@ -208,7 +225,32 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+uint8_t ReadLine(UART_HandleTypeDef*huart)
+{
+  uint8_t ch;
+  uint8_t total=0;
+  while(1)
+  {
+    HAL_UART_Receive(huart,&ch,1,HAL_MAX_DELAY);
+    if(ch=='\n')
+    {
+      inbuffer[total]='\0';
+      return total;
+    }
+    if(ch=='\r')
+    {
+      HAL_UART_Receive(huart,&ch,1,HAL_MAX_DELAY);
+      inbuffer[total]='\0';
+      return total;
+    }
+    if(total>inbuffernum)
+    {
+      return 0;
+    }
+    inbuffer[total++]=ch;
 
+  }
+}
 /* USER CODE END 4 */
 
 /**
